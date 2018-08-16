@@ -1,5 +1,5 @@
 # arctic-training-repo
-Anya typed in line 3 and deleted line 1 and Apryl deleted and changed line 3
+Anya typed in line 3 and deleted line 1 
 
 
 This is a test repository for the training
