@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, warning = F, message = F}
 library(dplyr)
 library(tidyr)
+library(broom)
 ```
 Read in data from [Mike Byerly. 2016. Alaska commercial salmon catches by management region (1886- 1997). urn:node:GOA. df35b.304.2.](https://knb.ecoinformatics.org/#view/df35b.304.2)
 
@@ -101,12 +102,18 @@ head(region_defs)
 catch_joined <- left_join(catch_df, region_defs, by = c("Region" = "code")) %>% 
   select(Year, species, catch_thousands, mgmtArea) %>% 
   group_by(mgmtArea) %>% 
-  filter(catch_thousands > 10000)
+  filter(catch_thousands >= 10000)
 
 
 print(catch_joined)
 ```
 
+```{r}
+catch_new <- catch_df%>% 
+  do(tidy(TukeyHSD(aov(data=. , catch_thousands~species))))
+
+catch_new
+```
 
 
 
