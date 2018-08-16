@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # arctic-training-repo
-Practice with Github at the Arctic Data training
+Apryl deleted and changed line 3
 
 
 This is a test repository for the training
